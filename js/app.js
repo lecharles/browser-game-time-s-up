@@ -246,6 +246,7 @@ function render() {
     setupScreen.classList.add('hidden');
     wordEntryScreen.classList.add('hidden');
     gameplayScreen.classList.add('hidden');
+    roundResultsScreen.classList.add('hidden');
     // We'll add more screens here later
 
     // Show the appropriate screen based on currentScreen
@@ -259,6 +260,10 @@ function render() {
     else if (currentScreen === SCREENS.GAMEPLAY) {
         gameplayScreen.classList.remove('hidden');
         renderGameplay();
+    }
+    else if (currentScreen === SCREENS.ROUND_RESULTS) {
+        roundResultsScreen.classList.remove('hidden');
+        renderRoundResults();
     }
 }
 
