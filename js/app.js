@@ -136,6 +136,35 @@ console.log('Word entry screen elements cached:', {
     wordEntryProgress
 });
 
+// Gameplay screen elements
+const gameplayScreen = document.getElementById('gameplay-screen');
+const roundDisplay = document.getElementById('round-display');
+const roundInstructions = document.getElementById('round-instructions');
+const team1ScoreDisplay = document.getElementById('team1-score');
+const team2ScoreDisplay = document.getElementById('team2-score');
+const team1NameDisplay = document.getElementById('team1-name-display');
+const team2NameDisplay = document.getElementById('team2-name-display');
+const turnInfo = document.getElementById('turn-info');
+const currentTurnDisplay = document.getElementById('current-turn-display');
+const startTurnBtn = document.getElementById('start-turn-btn');
+const wordDisplayContainer = document.getElementById('word-display-container');
+const timerDisplay = document.getElementById('timer');
+const currentWordDisplay = document.getElementById('current-word');
+const gotItBtn = document.getElementById('got-it-btn');
+const skipBtn = document.getElementById('skip-btn');
+const wordsRemainingDisplay = document.getElementById('words-remaining');
+const timesUpMessage = document.getElementById('times-up-message');
+const nextTurnBtn = document.getElementById('next-turn-btn');
+
+// Verify gameplay elements were found
+console.log('Gameplay screen elements cached:', {
+    gameplayScreen,
+    roundDisplay,
+    startTurnBtn,
+    gotItBtn,
+    skipBtn
+});
+
 /*-------------------------------- Functions --------------------------------*/
 /*
 INIT FUNCTION
