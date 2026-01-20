@@ -536,3 +536,10 @@ startGameBtn.addEventListener('click', handleSetupSubmit);
 
 console.log('Event listeners conected');
 
+/*
+WORD ENTRY SCREEN EVENT LISTENERS
+*/
+
+// Submit Words button - validates and submits words
+submitWordsBtn.addEventListener('click', handleWordSubmit);
+
