@@ -691,6 +691,23 @@ function renderRoundResults() {
 }
 
 /*
+HANDLE NEXT ROUND FUNCTION
+Called when "Start Next Round" button is clicked
+Resets scores and starts the next round
+*/
+
+function handleNextRound() {
+    console.log('Starting next round:', currentRound);
+
+    // Reset scores for next round (keep roundScores)
+    teams[0].score = 0;
+    teams[1].score = 0;
+
+    // Start the next round
+    startRound();
+}
+
+/*
 HANDLE GOT IT FUNCTION
 Called when "Got It!" button is clicked
 Means the team guessed the word correctly
