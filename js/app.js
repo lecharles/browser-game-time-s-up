@@ -294,6 +294,67 @@ function validateWords() {
 }
 
 /*
+HANDLE WORD SUBMIT FUNCTION
+Called when "Submit Words" button is clicked
+Validates words, adds them to allWords array
+Moves to next player or starts game if all players done
+*/
+
+function handleWordSubmit() {
+    console.log('Words submitted by player:', currentWordEntryPlayerIndex);
+
+    // Validate words first
+    if (!validateWords()) {
+        console.log('Word validation failed, stopping');
+        return; // Stop if validation fails
+    }
+
+    // If validation passed, collect the words
+    const enteredWords = [];
+
+    wordInputs.forEach(input => {
+        const word = input.value.trim();
+        if (word) {
+            enteredWords.push(word);
+        }
+    });
+
+    // Add these words to the master allWords array
+    allWords.push(...enteredWords);
+
+    console.log('Words added. Total words now:', allWords.length);
+    console.log('All words so far:', allWords);
+
+    // Move to next player
+    currentWordEntryPlayerIndex++;
+
+    // Check if all players have entered words
+    if (currentWordEntryPlayerIndex >= allPlayersList.length) {
+        // All players done! Time to start the game
+        console.log('All players have entered words!');
+        console.log('Final word pool:', allWords);
+
+        // Shuffle the word pool
+        shuffleArray(allWords);
+        console.log('Words shuffled:', allWords);
+
+        // Copy all words to availableWords for first round
+        availableWords = [...allWords];
+
+        // Transition to gameplay
+        currentScreen = SCREENS.GAMEPLAY;
+        render();
+
+        // NOTE: We'll add gameplay screen next
+        console.log('Transitioning to gameplay');
+    } else {
+        // More players need to enter words
+        console.log('Moving to next player:', currentWordEntryPlayerIndex);
+        renderWordEntry(); // Show word entry for next player
+    }
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
