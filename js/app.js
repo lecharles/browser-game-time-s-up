@@ -658,6 +658,39 @@ function endTurn() {
 }
 
 /*
+RENDER ROUND RESULTS FUNCTION
+Shows the scores for the completed round
+Shows cumulative totals
+*/
+
+function renderRoundResults() {
+    console.log('Rendering round results');
+
+    // Show which round just completed
+    completedRoundNumber.textContent = currentRound - 1; // We've already incremented currentRound
+
+    // Show team names
+    roundTeam1Name.textContent = teams[0].name;
+    roundTeam2Name.textContent = teams[1].name;
+    totalTeam1Name.textContent = teams[0].name;
+    totalTeam2Name.textContent = teams[1].name;
+
+    // Show round scores (last scores in roundScores array)
+    const lastRoundIndex = teams[0].roundScores.length - 1;
+    roundTeam1Score.textContent = teams[0].roundScores[lastRoundIndex];
+    roundTeam2Score.textContent = teams[1].roundScores[lastRoundIndex];
+
+    // Calculate and show total scores
+    const team1Total = teams[0].roundScores.reduce((sum, score) => sum + score, 0);
+    const team2Total = teams[1].roundScores.reduce((sum, score) => sum + score, 0);
+
+    totalTeam1Score.textContent = team1Total;
+    totalTeam2Score.textContent = team2Total;
+
+    console.log('Round results rendered');
+}
+
+/*
 HANDLE GOT IT FUNCTION
 Called when "Got It!" button is clicked
 Means the team guessed the word correctly
