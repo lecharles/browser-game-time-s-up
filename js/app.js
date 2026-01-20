@@ -573,6 +573,41 @@ function stopTimer() {
 }
 
 /*
+SHOW RANDOM WORD FUNCTION
+Picks a random word from availableWords
+Displays it on screen
+Updates words remaining count
+*/
+
+function showRandomWord() {
+    console.log('Showing random word. Available words:', availableWords.length);
+
+    // Check if any words left
+    if (availableWords.length === 0) {
+        console.log('No words left to show!');
+        currentWordDisplay.textContent = 'NO MORE WORDS!';
+        wordsRemainingDisplay.textContent = 'Words left: 0';
+        // Could auto-end turn here
+        return;
+    }
+
+    // Pick random index
+    const randomIndex = Math.floor(Math.random() * availableWords.length);
+
+    // Get the word at that index
+    currentWord = availableWords[randomIndex];
+    currentWordIndex = randomIndex;
+
+    // Display the word (uppercase for emphasis)
+    currentWordDisplay.textContent = currentWord.toUpperCase();
+
+    // Update words remaining
+    wordsRemainingDisplay.textContent = `Words left: ${availableWords.length}`;
+
+    console.log('Showing word:', currentWord, 'at index:', randomIndex);
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
