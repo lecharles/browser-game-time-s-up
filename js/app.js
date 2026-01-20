@@ -91,6 +91,10 @@ let timerRunning; // Boolean - is timer currently active?
 let currentWordEntryPlayerIndex; // Which player is currently entering words (0 to total players - 1)
 let allPlayersList; // Flat array of all players from both teams for word entry phase
 
+// Turn tracking for round completion
+let totalTurnsInRound; // Total number of turns per round (equal to total players)
+let turnsCompletedInRound; // How many turns have been completed so far
+
 console.log('State variables initialized');
 
 /*------------------------ Cached Element References ------------------------*/
