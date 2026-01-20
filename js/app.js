@@ -759,6 +759,53 @@ function calculateWinner() {
 }
 
 /*
+RENDER FINAL RESULTS FUNCTION
+Shows final winner announcement and round-by-round breakdown
+*/
+
+function renderFinalResults() {
+    console.log('Rendering final results');
+
+    // Calculate winner
+    const result = calculateWinner();
+
+    // Display winner announcement
+    if (result.isTie) {
+        winnerAnnouncement.textContent = "It's a Tie! 🤝";
+        finalScoreSummary.textContent = `Final Score: ${result.team1Total} - ${result.team2Total}`;
+    } else {
+        winnerAnnouncement.textContent = `${result.winnerName} Wins! 🎉`;
+        finalScoreSummary.textContent = `Final Score: ${result.team1Total} - ${result.team2Total}`;
+    }
+
+    // Build round-by-round breakdown
+    let breakdownHTML = '<table style="width: 100%; text-align: center;">';
+    breakdownHTML += '<tr><th>Round</th><th>' + teams[0].name + '</th><th>' + teams[1].name + '</th></tr>';
+
+    // Add row for each round
+    for (let i = 0; i < teams[0].roundScores.length; i++) {
+        breakdownHTML += '<tr>';
+        breakdownHTML += '<td>Round ' + (i + 1) + '</td>';
+        breakdownHTML += '<td>' + teams[0].roundScores[i] + '</td>';
+        breakdownHTML += '<td>' + teams[1].roundScores[i] + '</td>';
+        breakdownHTML += '</tr>';
+    }
+
+    // Add total row
+    breakdownHTML += '<tr style="font-weight: bold; border-top: 2px solid black;">';
+    breakdownHTML += '<td>Total</td>';
+    breakdownHTML += '<td>' + result.team1Total + '</td>';
+    breakdownHTML += '<td>' + result.team2Total + '</td>';
+    breakdownHTML += '</tr>';
+
+    breakdownHTML += '</table>';
+
+    finalScoresBreakdown.innerHTML = breakdownHTML;
+
+    console.log('Final results rendered');
+}
+
+/*
 HANDLE GOT IT FUNCTION
 Called when "Got It!" button is clicked
 Means the team guessed the word correctly
