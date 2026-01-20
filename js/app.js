@@ -685,6 +685,8 @@ Shows cumulative totals
 
 function renderRoundResults() {
     console.log('Rendering round results');
+    console.log('Team 0 roundScores array:', teams[0].roundScores);
+    console.log('Team 1 roundScores array:', teams[1].roundScores);
 
     // Show which round just completed (currentRound was already incremented)
     completedRoundNumber.textContent = currentRound - 1;
@@ -697,19 +699,31 @@ function renderRoundResults() {
 
     // Show round scores (last scores in roundScores array)
     const lastRoundIndex = teams[0].roundScores.length - 1;
-    roundTeam1Score.textContent = teams[0].roundScores[lastRoundIndex] || 0; // Fallback to 0 due to possible undefined
-    roundTeam2Score.textContent = teams[1].roundScores[lastRoundIndex] || 0; // Fallback to 0 for same reason
+    roundTeam1Score.textContent = teams[0].roundScores[lastRoundIndex] //|| 0; // Fallback to 0 due to possible undefined
+    roundTeam2Score.textContent = teams[1].roundScores[lastRoundIndex] //|| 0; // Fallback to 0 for same reason
+
+    console.log('Last round index:', lastRoundIndex);
+    console.log('Team 1 round score:', team1RoundScore);
+    console.log('Team 2 round score:', team2RoundScore);
+
+    roundTeam1Score.textContent = team1RoundScore;
+    roundTeam2Score.textContent = team2RoundScore;
 
     // Calculate and show total scores
     const team1Total = teams[0].roundScores.reduce((sum, score) => sum + score, 0);
     const team2Total = teams[1].roundScores.reduce((sum, score) => sum + score, 0);
 
+    console.log('Team 1 TOTAL calculated:', team1Total);
+    console.log('Team 2 TOTAL calculated:', team2Total);
+    console.log('Updating element totalTeam1Score to:', team1Total);
+    console.log('Updating element totalTeam2Score to:', team2Total);
+
     totalTeam1Score.textContent = team1Total;
     totalTeam2Score.textContent = team2Total;
 
-    console.log('Round results rendered. Round', currentRound - 1, 'scores:', teams[0].roundScores[lastRoundIndex], 'vs', teams[1].roundScores[lastRoundIndex]);
-    // additional logging for totals for clarity
-    console.log('Total scores so far:', teams[0].name, team1Total, 'vs', teams[1].name, team2Total);
+    console.log('Round results rendered. Round', currentRound - 1);
+    console.log('Verify - totalTeam1Score.textContent is now:', totalTeam1Score.textContent);
+    console.log('Verify - totalTeam2Score.textContent is now:', totalTeam2Score.textContent);
 }
 
 /*
