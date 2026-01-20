@@ -184,6 +184,15 @@ const nextRoundBtn = document.getElementById('next-round-btn');
 
 console.log('Round results elements cached');
 
+// Final results screen elements
+const finalResultsScreen = document.getElementById('final-results-screen');
+const winnerAnnouncement = document.getElementById('winner-announcement');
+const finalScoreSummary = document.getElementById('final-score-summary');
+const finalScoresBreakdown = document.getElementById('final-scores-breakdown');
+const playAgainBtn = document.getElementById('play-again-btn');
+
+console.log('Final results elements cached');
+
 /*-------------------------------- Functions --------------------------------*/
 /*
 INIT FUNCTION
