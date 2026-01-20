@@ -2,7 +2,7 @@ console.log('app.js connected');
 
 /*-------------------------------- Constants --------------------------------*/
 // Timer duration in seconds
-const TIMER_DURATION = 60;
+const TIMER_DURATION = 12; // temporaryly set to 12s for testing
 
 // Team constraints
 const MIN_TEAMS = 2;
@@ -1156,3 +1156,6 @@ nextTurnBtn.addEventListener('click', handleNextTurn);
 
 // Next Round button - starts next round from results screen
 nextRoundBtn.addEventListener('click', handleNextRound);
+
+// Play Again button - resets game to setup screen
+playAgainBtn.addEventListener('click', init);
