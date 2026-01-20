@@ -1053,3 +1053,6 @@ skipBtn.addEventListener('click', handleSkip);
 
 // Next Turn button - move to next player after time's up
 nextTurnBtn.addEventListener('click', handleNextTurn);
+
+// Next Round button - starts next round from results screen
+nextRoundBtn.addEventListener('click', handleNextRound);
