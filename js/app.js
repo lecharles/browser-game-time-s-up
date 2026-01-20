@@ -848,3 +848,5 @@ GAMEPLAY SCREEN EVENT LISTENERS
 // Start Turn button - begins the timer and shows words
 startTurnBtn.addEventListener('click', startTurn);
 
+// Got It button - correct guess, add point and remove word
+gotItBtn.addEventListener('click', handleGotIt);
