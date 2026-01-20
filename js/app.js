@@ -167,4 +167,22 @@ function init() {
     console.log('Game initialized. Current screen:', currentScreen);
 }
 
+/*
+RENDER FUNCTION
+Master render function that shows the correct screen
+Hides all screens, then shows only the current one
+*/
+
+function render() {
+    console.log('Rendering screen:', currentScreen);
+
+    // For now, just show setup screen
+    // We'll expand this as we add more screens
+
+    // Show setup screen (other screens will be added later)
+    if (currentScreen === SCREENS.SETUP) {
+        setupScreen.classList.remove('hidden');
+    }
+}
+
 /*----------------------------- Event Listeners -----------------------------*/
