@@ -118,6 +118,53 @@ console.log('Setup screen elements cached:', {
     setupError
 });
 
-/*----------------------------- Event Listeners -----------------------------*/
-
 /*-------------------------------- Functions --------------------------------*/
+/*
+INIT FUNCTION
+Initialize the game when page loads or when "Play Again" is clicked
+Resets all state variables to starting values
+Shows the setup screen
+*/
+
+function init() {
+    console.log('Initializing game...');
+
+    // Set initial screen
+    currentScreen = SCREENS.SETUP;
+
+    // Initialize empty game state
+    teams = [];
+    allWords = [];
+    availableWords = [];
+
+    // Reset game position
+    currentRound = 1;
+    currentTeamIndex = 0;
+    currentPlayerIndex = 0;
+    currentWord = '';
+    currentWordIndex = -1;
+
+    // Reset timer state
+    timerInterval = null;
+    timeRemaining = TIMER_DURATION;
+    timerRunning = false;
+
+    // Reset word entry tracking
+    currentWordEntryPlayerIndex = 0;
+    allPlayersList = [];
+
+    // Clear any error messages
+    setupError.textContent = '';
+
+    // Clear setup form inputs
+    team1NameInput.value = '';
+    team2NameInput.value = '';
+    playerNameInputs.forEach(input => input.value = '');
+
+    // Show setup screen (we'll add render() function next)
+    render();
+
+    console.log('Game initialized. Current screen:', currentScreen);
+}
+
+/*----------------------------- Event Listeners -----------------------------*/
