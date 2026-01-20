@@ -962,9 +962,11 @@ function endRound() {
         render();
 
     } else {
-        console.log('All rounds complete! Game over.');
-        // NOTE: We'll add final results screen in next commit
-        alert('Game Over! Check console for scores.'); // Temporary
+        console.log('All rounds complete! Showing final results.');
+
+        // All rounds done - show final results
+        currentScreen = SCREENS.FINAL_RESULTS;
+        render();
     }
 }
 
