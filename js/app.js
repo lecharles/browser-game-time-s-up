@@ -94,6 +94,29 @@ let allPlayersList; // Flat array of all players from both teams for word entry 
 console.log('State variables initialized');
 
 /*------------------------ Cached Element References ------------------------*/
+/*
+CACHED ELEMENT REFERENCES
+Store references to DOM elements so we can access them quickly
+Instead of searching the DOM every time, we search once and save the result
+*/
+
+// Setup screen elements
+const setupScreen = document.getElementById('setup-screen');
+const team1NameInput = document.getElementById('team1-name');
+const team2NameInput = document.getElementById('team2-name');
+const playerNameInputs = document.querySelectorAll('.player-name');
+const startGameBtn = document.getElementById('start-game-btn');
+const setupError = document.getElementById('setup-error');
+
+// Verify elements were found
+console.log('Setup screen elements cached:', {
+    setupScreen,
+    team1NameInput,
+    team2NameInput,
+    playerNameInputs,
+    startGameBtn,
+    setupError
+});
 
 /*----------------------------- Event Listeners -----------------------------*/
 
