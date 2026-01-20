@@ -433,6 +433,12 @@ function startRound() {
     currentTeamIndex = 0;
     currentPlayerIndex = 0;
 
+    // Calculate total turns for this round (each player goes once)
+    totalTurnsInRound = teams[0].players.length + teams[1].players.length;
+    turnsCompletedInRound = 0;
+
+    console.log('Total turns in round:', totalTurnsInRound);
+
     // Render the gameplay screen
     renderGameplay();
 
