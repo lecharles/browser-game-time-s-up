@@ -9,7 +9,43 @@
 </head>
 <body>
     <!-- ==================== SETUP SCREEN ==================== -->
+    <div id="setup-screen" class="screen">
+        <h1>⏰ Time's Up!</h1>
+        <p class="tagline">Help your team guess words in 60 seconds</p>
     
+        <div class="setup-container">
+            <!-- Team 1 Setup -->
+            <div class="team-setup">
+                <h2>Team 1</h2>
+                <input type="text" id="team1-name" placeholder="Team 1 Name" maxlength="20">
+    
+                <h3>Players</h3>
+                <input type="text" class="player-name" data-team="1" data-player="0" placeholder="Player 1" maxlength="15">
+                <input type="text" class="player-name" data-team="1" data-player="1" placeholder="Player 2" maxlength="15">
+                <input type="text" class="player-name" data-team="1" data-player="2" placeholder="Player 3 (optional)"
+                    maxlength="15">
+                <input type="text" class="player-name" data-team="1" data-player="3" placeholder="Player 4 (optional)"
+                    maxlength="15">
+            </div>
+    
+            <!-- Team 2 Setup -->
+            <div class="team-setup">
+                <h2>Team 2</h2>
+                <input type="text" id="team2-name" placeholder="Team 2 Name" maxlength="20">
+    
+                <h3>Players</h3>
+                <input type="text" class="player-name" data-team="2" data-player="0" placeholder="Player 1" maxlength="15">
+                <input type="text" class="player-name" data-team="2" data-player="1" placeholder="Player 2" maxlength="15">
+                <input type="text" class="player-name" data-team="2" data-player="2" placeholder="Player 3 (optional)"
+                    maxlength="15">
+                <input type="text" class="player-name" data-team="2" data-player="3" placeholder="Player 4 (optional)"
+                    maxlength="15">
+            </div>
+        </div>
+    
+        <button id="start-game-btn" class="btn-primary">Start Game</button>
+        <p class="error-message" id="setup-error"></p>
+    </div>
     
     <!-- ==================== WORD ENTRY SCREEN ==================== -->
     
