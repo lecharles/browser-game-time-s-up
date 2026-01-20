@@ -795,3 +795,10 @@ WORD ENTRY SCREEN EVENT LISTENERS
 // Submit Words button - validates and submits words
 submitWordsBtn.addEventListener('click', handleWordSubmit);
 
+/*
+GAMEPLAY SCREEN EVENT LISTENERS
+*/
+
+// Start Turn button - begins the timer and shows words
+startTurnBtn.addEventListener('click', startTurn);
+
