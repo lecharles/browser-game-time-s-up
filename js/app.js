@@ -890,15 +890,8 @@ function moveToNextPlayer() {
         currentTeamIndex = 1;
     } else {
         currentTeamIndex = 0;
-    }
-
-    // Move to next player in that team
-    currentPlayerIndex++;
-
-    // Check if we've gone through all players in this team
-    // If so, wrap back to first player
-    if (currentPlayerIndex >= teams[currentTeamIndex].players.length) {
-        currentPlayerIndex = 0;
+        // After both teams go, move to next player position
+        currentPlayerIndex++;
     }
 
     console.log('Next player:', teams[currentTeamIndex].name, teams[currentTeamIndex].players[currentPlayerIndex]);
