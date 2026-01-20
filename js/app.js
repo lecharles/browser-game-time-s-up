@@ -226,6 +226,7 @@ function render() {
     // Hide all screens first
     setupScreen.classList.add('hidden');
     wordEntryScreen.classList.add('hidden');
+    gameplayScreen.classList.add('hidden');
     // We'll add more screens here later
 
     // Show the appropriate screen based on currentScreen
@@ -235,6 +236,10 @@ function render() {
     else if (currentScreen === SCREENS.WORD_ENTRY) {
         wordEntryScreen.classList.remove('hidden');
         renderWordEntry(); // Show word entry for current player
+    }
+    else if (currentScreen === SCREENS.GAMEPLAY) {
+        gameplayScreen.classList.remove('hidden');
+        renderGameplay();
     }
 }
 
