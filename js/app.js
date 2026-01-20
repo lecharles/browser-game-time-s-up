@@ -95,6 +95,9 @@ let allPlayersList; // Flat array of all players from both teams for word entry 
 let totalTurnsInRound; // Total number of turns per round (equal to total players)
 let turnsCompletedInRound; // How many turns have been completed so far
 
+// Audio state
+let isMuted = false; // Sound on/off state
+
 console.log('State variables initialized');
 
 /*------------------------ Cached Element References ------------------------*/
@@ -192,6 +195,18 @@ const finalScoresBreakdown = document.getElementById('final-scores-breakdown');
 const playAgainBtn = document.getElementById('play-again-btn');
 
 console.log('Final results elements cached');
+
+// Audio elements
+const bellSound = document.getElementById('bell-sound');
+const muteBtn = document.getElementById('mute-btn');
+
+console.log('Audio elements cached:', { bellSound, muteBtn });
+
+// Instructions elements
+const toggleInstructionsBtn = document.getElementById('toggle-instructions');
+const instructionsContent = document.getElementById('instructions-content');
+
+console.log('Instructions elements cached:', { toggleInstructionsBtn, instructionsContent });
 
 /*-------------------------------- Functions --------------------------------*/
 /*
@@ -670,11 +685,46 @@ function endTurn() {
     // Stop the timer
     stopTimer();
 
+    // Play bell sound - ADD THIS LINE!
+    if (!isMuted) bellSound.play();
+
     // Hide word display, show time's up message
     wordDisplayContainer.classList.add('hidden');
     timesUpMessage.classList.remove('hidden');
 
     console.log('Turn ended. Waiting for next turn button click.');
+}
+
+/*
+HANDLE MUTE TOGGLE FUNCTION
+Toggles sound on/off when mute button is clicked
+*/
+function handleMuteToggle() {
+    isMuted = !isMuted;
+    muteBtn.textContent = isMuted ? '🔇' : '🔊';
+    console.log('Sound', isMuted ? 'muted' : 'unmuted');
+}
+
+/*
+TOGGLE INSTRUCTIONS FUNCTION
+Shows/hides the instructions section when button is clicked
+*/
+function toggleInstructions() {
+    const isExpanded = toggleInstructionsBtn.getAttribute('aria-expanded') === 'true';
+
+    if (isExpanded) {
+        // Collapse instructions
+        toggleInstructionsBtn.setAttribute('aria-expanded', 'false');
+        instructionsContent.classList.remove('show');
+        instructionsContent.classList.add('hidden');
+    } else {
+        // Expand instructions
+        toggleInstructionsBtn.setAttribute('aria-expanded', 'true');
+        instructionsContent.classList.remove('hidden');
+        instructionsContent.classList.add('show');
+    }
+
+    console.log('Instructions toggled. Expanded:', !isExpanded);
 }
 
 /*
@@ -1175,3 +1225,16 @@ nextRoundBtn.addEventListener('click', handleNextRound);
 
 // Play Again button - resets game to setup screen
 playAgainBtn.addEventListener('click', init);
+
+// Play Again button - resets game to setup screen
+playAgainBtn.addEventListener('click', init);
+
+// Mute button - toggles sound on/off
+muteBtn.addEventListener('click', handleMuteToggle);
+
+console.log('Audio event listener connected');
+
+// Instructions toggle button - shows/hides instructions
+toggleInstructionsBtn.addEventListener('click', toggleInstructions);
+
+console.log('Instructions toggle listener connected');

@@ -8,6 +8,10 @@
     <script defer src="./js/app.js"></script>
 </head>
 <body>
+    <!-- Audio element for bell sound -->
+    <audio id="bell-sound" src="./audio/bell.wav"></audio>
+    <button id="mute-btn" class="mute-button" aria-label="Toggle sound">🔊</button>
+
     <!-- ==================== SETUP SCREEN ==================== -->
     <div id="setup-screen" class="screen">
         <h1>⏰ Time's Up!</h1>
@@ -161,5 +165,52 @@
     
     
     <!-- ==================== HOW TO PLAY (Always Visible) ==================== -->
+    <div class="instructions-container">
+        <button id="toggle-instructions" class="instructions-toggle" aria-expanded="false">
+            📖 How to Play <span id="toggle-icon">▼</span>
+        </button>
+    
+        <div id="instructions-content" class="instructions-content hidden">
+            <h2>🎮 Game Overview</h2>
+            <p>Time's Up! is a fast-paced word-guessing party game for two teams. Players race against a 60-second timer to
+                help their teammates guess as many words as possible!</p>
+    
+            <h3>Setup</h3>
+            <ol>
+                <li>Form two teams with 2-4 players each (teams must be equal size)</li>
+                <li>Enter team names and player names</li>
+                <li>Each player submits 3-5 words (people, places, things, phrases)</li>
+            </ol>
+    
+            <h3>Gameplay</h3>
+            <p><strong>Round 1: Describe It 💬</strong></p>
+            <ul>
+                <li>Describe the word using any words EXCEPT the word itself</li>
+                <li>Teams alternate turns</li>
+                <li>Each turn lasts 60 seconds</li>
+                <li>Click "Got It!" when your team guesses correctly (1 point + word removed)</li>
+                <li>Click "Skip" if you can't get the word (word stays in pool)</li>
+            </ul>
+    
+            <p><strong>Round 2: One Word 🔤</strong></p>
+            <ul>
+                <li>Same words, new challenge!</li>
+                <li>Give only ONE single-word clue (not the word itself)</li>
+                <li>Same rules as Round 1</li>
+            </ul>
+    
+            <h3>Winning</h3>
+            <p>After both rounds, the team with the most points wins! 🏆</p>
+    
+            <h3>Tips</h3>
+            <ul>
+                <li>🔊 Use the speaker button (top-right) to mute/unmute the bell sound</li>
+                <li>Choose a mix of easy and challenging words</li>
+                <li>In Round 2, creative single-word clues are key!</li>
+                <li>Have fun and don't take it too seriously!</li>
+            </ul>
+        </div>
+    </div>
+     
 </body>
 </html>
