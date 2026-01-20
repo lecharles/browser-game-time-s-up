@@ -169,6 +169,21 @@ console.log('Gameplay screen elements cached:', {
     skipBtn
 });
 
+// Round results screen elements
+const roundResultsScreen = document.getElementById('round-results-screen');
+const completedRoundNumber = document.getElementById('completed-round-number');
+const roundTeam1Name = document.getElementById('round-team1-name');
+const roundTeam2Name = document.getElementById('round-team2-name');
+const roundTeam1Score = document.getElementById('round-team1-score');
+const roundTeam2Score = document.getElementById('round-team2-score');
+const totalTeam1Name = document.getElementById('total-team1-name');
+const totalTeam2Name = document.getElementById('total-team2-name');
+const totalTeam1Score = document.getElementById('total-team1-score');
+const totalTeam2Score = document.getElementById('total-team2-score');
+const nextRoundBtn = document.getElementById('next-round-btn');
+
+console.log('Round results elements cached');
+
 /*-------------------------------- Functions --------------------------------*/
 /*
 INIT FUNCTION
