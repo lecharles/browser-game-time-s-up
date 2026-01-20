@@ -230,13 +230,17 @@ function init() {
 
     // Clear any error messages
     setupError.textContent = '';
+    wordEntryError.textContent = '';
 
     // Clear setup form inputs
     team1NameInput.value = '';
     team2NameInput.value = '';
     playerNameInputs.forEach(input => input.value = '');
 
-    // Show setup screen (we'll add render() function next)
+    // Clear word entry inputs
+    wordInputs.forEach(input => input.value = '');
+
+    // Show setup screen
     render();
 
     console.log('Game initialized. Current screen:', currentScreen);
