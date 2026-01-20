@@ -118,6 +118,24 @@ console.log('Setup screen elements cached:', {
     setupError
 });
 
+// Word entry screen elements
+const wordEntryScreen = document.getElementById('word-entry-screen');
+const currentPlayerPrompt = document.getElementById('current-player-prompt');
+const wordInputs = document.querySelectorAll('.word-input');
+const submitWordsBtn = document.getElementById('submit-words-btn');
+const wordEntryError = document.getElementById('word-entry-error');
+const wordEntryProgress = document.getElementById('word-entry-progress');
+
+// Verify word entry elements were found
+console.log('Word entry screen elements cached:', {
+    wordEntryScreen,
+    currentPlayerPrompt,
+    wordInputs,
+    submitWordsBtn,
+    wordEntryError,
+    wordEntryProgress
+});
+
 /*-------------------------------- Functions --------------------------------*/
 /*
 INIT FUNCTION
