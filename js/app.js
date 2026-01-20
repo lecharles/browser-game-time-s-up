@@ -727,6 +727,28 @@ function moveToNextPlayer() {
 }
 
 /*
+HANDLE NEXT TURN FUNCTION
+Called when "Next Turn" button is clicked after time's up
+Moves to next player and checks if round is over
+*/
+
+function handleNextTurn() {
+    console.log('Next turn button clicked');
+
+    // Move to next player
+    moveToNextPlayer();
+
+    // Check if round is complete (all players have gone)
+    // For now, just continue to next turn
+    // NOTE: We'll add round completion check next
+
+    // Re-render gameplay for next player's turn
+    renderGameplay();
+
+    console.log('Ready for next turn');
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
