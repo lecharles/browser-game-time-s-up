@@ -628,6 +628,52 @@ function endTurn() {
 }
 
 /*
+HANDLE GOT IT FUNCTION
+Called when "Got It!" button is clicked
+Means the team guessed the word correctly
+- Adds 1 point to current team's score
+- Removes word from availableWords pool
+- Shows next word
+*/
+
+function handleGotIt() {
+    console.log('Got It! Word guessed:', currentWord);
+
+    // Add point to current team
+    teams[currentTeamIndex].score++;
+    console.log(`${teams[currentTeamIndex].name} score is now:`, teams[currentTeamIndex].score);
+
+    // Update score display
+    updateScores();
+
+    // Remove word from available pool
+    availableWords.splice(currentWordIndex, 1);
+    console.log('Word removed. Words remaining:', availableWords.length);
+
+    // Check if any words left
+    if (availableWords.length === 0) {
+        console.log('No more words! Ending turn...');
+        endTurn();
+        return;
+    }
+
+    // Show next word
+    showRandomWord();
+}
+
+/*
+UPDATE SCORES FUNCTION
+Updates the score displays for both teams
+*/
+
+function updateScores() {
+    team1ScoreDisplay.textContent = teams[0].score;
+    team2ScoreDisplay.textContent = teams[1].score;
+
+    console.log('Scores updated:', teams[0].name, teams[0].score, 'vs', teams[1].name, teams[1].score);
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
