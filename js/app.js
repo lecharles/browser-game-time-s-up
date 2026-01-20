@@ -241,6 +241,59 @@ function renderWordEntry() {
 }
 
 /*
+VALIDATE WORDS FUNCTION
+Checks if current player entered 3-5 words
+Returns true if valid, false if not
+Displays error message if validation fails
+*/
+
+function validateWords() {
+    console.log('Validating words...');
+
+    // Clear any previous error
+    wordEntryError.textContent = '';
+
+    // Collect all non-empty words
+    const enteredWords = [];
+
+    wordInputs.forEach(input => {
+        const word = input.value.trim();
+        if (word) {
+            enteredWords.push(word);
+        }
+    });
+
+    console.log('Words entered:', enteredWords);
+
+    // Check minimum words
+    if (enteredWords.length < MIN_WORDS_PER_PLAYER) {
+        wordEntryError.textContent = `Please enter at least ${MIN_WORDS_PER_PLAYER} words`;
+        console.log('Validation failed: Not enough words');
+        return false;
+    }
+
+    // Check maximum words
+    if (enteredWords.length > MAX_WORDS_PER_PLAYER) {
+        wordEntryError.textContent = `Please enter no more than ${MAX_WORDS_PER_PLAYER} words`;
+        console.log('Validation failed: Too many words');
+        return false;
+    }
+
+    // Check for duplicate words (case-insensitive)
+    const lowercaseWords = enteredWords.map(word => word.toLowerCase());
+    const uniqueWords = new Set(lowercaseWords);
+
+    if (uniqueWords.size !== enteredWords.length) {
+        wordEntryError.textContent = 'Please enter unique words (no duplicates)';
+        console.log('Validation failed: Duplicate words');
+        return false;
+    }
+
+    console.log('Validation passed for words:', enteredWords);
+    return true;
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
