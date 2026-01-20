@@ -928,3 +928,6 @@ gotItBtn.addEventListener('click', handleGotIt);
 
 // Skip button - word not guessed, show next word but keep in pool
 skipBtn.addEventListener('click', handleSkip);
+
+// Next Turn button - move to next player after time's up
+nextTurnBtn.addEventListener('click', handleNextTurn);
