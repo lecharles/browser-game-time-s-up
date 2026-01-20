@@ -698,6 +698,35 @@ function handleSkip() {
 }
 
 /*
+MOVE TO NEXT PLAYER FUNCTION
+Switches to the next player's turn
+Alternates between teams
+*/
+
+function moveToNextPlayer() {
+    console.log('Moving to next player...');
+    console.log('Current:', teams[currentTeamIndex].name, teams[currentTeamIndex].players[currentPlayerIndex]);
+
+    // Switch to other team
+    if (currentTeamIndex === 0) {
+        currentTeamIndex = 1;
+    } else {
+        currentTeamIndex = 0;
+    }
+
+    // Move to next player in that team
+    currentPlayerIndex++;
+
+    // Check if we've gone through all players in this team
+    // If so, wrap back to first player
+    if (currentPlayerIndex >= teams[currentTeamIndex].players.length) {
+        currentPlayerIndex = 0;
+    }
+
+    console.log('Next player:', teams[currentTeamIndex].name, teams[currentTeamIndex].players[currentPlayerIndex]);
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
