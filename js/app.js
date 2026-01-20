@@ -210,6 +210,37 @@ function render() {
 }
 
 /*
+RENDER WORD ENTRY FUNCTION
+Updates the word entry screen to show current player's prompt
+Clears previous inputs and updates progress
+*/
+
+function renderWordEntry() {
+    console.log('Rendering word entry for player:', currentWordEntryPlayerIndex);
+
+    // Get current player info
+    const currentPlayerInfo = allPlayersList[currentWordEntryPlayerIndex];
+    const playerName = currentPlayerInfo.playerName;
+    const teamIndex = currentPlayerInfo.teamIndex;
+    const teamName = teams[teamIndex].name;
+
+    // Update prompt to show current player
+    currentPlayerPrompt.textContent = `${playerName} (${teamName}), enter ${MIN_WORDS_PER_PLAYER}-${MAX_WORDS_PER_PLAYER} words:`;
+
+    // Clear all word inputs from previous player
+    wordInputs.forEach(input => input.value = '');
+
+    // Clear any error message
+    wordEntryError.textContent = '';
+
+    // Update progress indicator
+    const totalPlayers = allPlayersList.length;
+    wordEntryProgress.textContent = `Player ${currentWordEntryPlayerIndex + 1} of ${totalPlayers}`;
+
+    console.log('Word entry rendered for:', playerName, 'from', teamName);
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
