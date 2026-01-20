@@ -185,4 +185,7 @@ function render() {
     }
 }
 
+// Call init when page loads
+init();
+
 /*----------------------------- Event Listeners -----------------------------*/
