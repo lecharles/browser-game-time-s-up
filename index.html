@@ -48,6 +48,22 @@
     </div>
     
     <!-- ==================== WORD ENTRY SCREEN ==================== -->
+    <div id="word-entry-screen" class="screen hidden">
+        <h1>📝 Enter Your Words</h1>
+        <p id="current-player-prompt">Player, enter 3-5 words:</p>
+    
+        <div class="word-input-container">
+            <input type="text" class="word-input" placeholder="Word 1" maxlength="30">
+            <input type="text" class="word-input" placeholder="Word 2" maxlength="30">
+            <input type="text" class="word-input" placeholder="Word 3" maxlength="30">
+            <input type="text" class="word-input" placeholder="Word 4 (optional)" maxlength="30">
+            <input type="text" class="word-input" placeholder="Word 5 (optional)" maxlength="30">
+        </div>
+    
+        <button id="submit-words-btn" class="btn-primary">Submit Words</button>
+        <p class="error-message" id="word-entry-error"></p>
+        <p id="word-entry-progress">Player 1 of X</p>
+    </div>
     
     
     <!-- ==================== GAMEPLAY SCREEN ==================== -->
