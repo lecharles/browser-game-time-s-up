@@ -194,12 +194,18 @@ Hides all screens, then shows only the current one
 function render() {
     console.log('Rendering screen:', currentScreen);
 
-    // For now, just show setup screen
-    // We'll expand this as we add more screens
+    // Hide all screens first
+    setupScreen.classList.add('hidden');
+    wordEntryScreen.classList.add('hidden');
+    // We'll add more screens here later
 
-    // Show setup screen (other screens will be added later)
+    // Show the appropriate screen based on currentScreen
     if (currentScreen === SCREENS.SETUP) {
         setupScreen.classList.remove('hidden');
+    }
+    else if (currentScreen === SCREENS.WORD_ENTRY) {
+        wordEntryScreen.classList.remove('hidden');
+        renderWordEntry(); // Show word entry for current player
     }
 }
 
