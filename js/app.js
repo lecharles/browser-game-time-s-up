@@ -185,6 +185,73 @@ function render() {
     }
 }
 
+/*
+VALIDATE SETUP FUNCTION
+Checks if setup form is filled out correctly
+Returns true if valid, false if not
+Displays error message if validation fails
+*/
+
+function validateSetup() {
+    console.log('Validating setup...');
+
+    // Clear any previous error message
+    setupError.textContent = '';
+
+    // Check team names
+    const team1Name = team1NameInput.value.trim();
+    const team2Name = team2NameInput.value.trim();
+
+    if (!team1Name || !team2Name) {
+        setupError.textContent = 'Please enter names for both teams';
+        console.log('Validation failed: Missing team name(s)');
+        return false;
+    }
+
+    // Collect player names for each team
+    const team1Players = [];
+    const team2Players = [];
+
+    playerNameInputs.forEach(input => {
+        const playerName = input.value.trim();
+        const teamNum = input.getAttribute('data-team');
+
+        // Only add non-empty player names
+        if (playerName) {
+            if (teamNum === '1') {
+                team1Players.push(playerName);
+            } else if (teamNum === '2') {
+                team2Players.push(playerName);
+            }
+        }
+    });
+
+    // Check each team has minimum players (2)
+    if (team1Players.length < MIN_PLAYERS_PER_TEAM) {
+        setupError.textContent = `Team 1 needs at least ${MIN_PLAYERS_PER_TEAM} players`;
+        console.log('Validation failed: Team 1 needs more players');
+        return false;
+    }
+
+    if (team2Players.length < MIN_PLAYERS_PER_TEAM) {
+        setupError.textContent = `Team 2 needs at least ${MIN_PLAYERS_PER_TEAM} players`;
+        console.log('Validation failed: Team 2 needs more players');
+        return false;
+    }
+
+    // Check teams have equal number of players
+    if (team1Players.length !== team2Players.length) {
+        setupError.textContent = 'Both teams must have the same number of players';
+        console.log('Validation failed: Unequal team sizes');
+        return false;
+    }
+
+    console.log('Validation passed', { team1Name, team2Name, team1Players, team2Players });
+
+    // If we get here -> validation passed
+    return true;
+}
+
 // Call init when page loads
 init();
 
