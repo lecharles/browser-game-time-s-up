@@ -410,6 +410,31 @@ function shuffleArray(array) {
 }
 
 /*
+START ROUND FUNCTION
+Initializes a new round
+Resets availableWords to full pool
+Updates round display
+Shows whose turn it is
+*/
+
+function startRound() {
+    console.log('Starting round:', currentRound);
+
+    // Reset availableWords to full word pool for this round
+    availableWords = [...allWords];
+    console.log('Available words for round:', availableWords.length);
+
+    // Reset turn tracking to start of round
+    currentTeamIndex = 0;
+    currentPlayerIndex = 0;
+
+    // Render the gameplay screen
+    renderGameplay();
+
+    console.log('Round started. First turn:', teams[currentTeamIndex].players[currentPlayerIndex]);
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
