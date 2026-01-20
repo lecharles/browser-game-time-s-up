@@ -44,6 +44,54 @@ const SCREENS = {
 console.log('Constants loaded:', { TIMER_DURATION, ROUNDS, SCREENS });
 
 /*---------------------------- Variables (state) ----------------------------*/
+/*
+STATE VARIABLES
+These track the current state of the game at any moment
+*/
+
+// Screen management - which screen is currently showing
+let currentScreen;
+
+// Team data - array of team objects
+let teams;
+/*
+Structure: [
+  { 
+    name: "Team 1", 
+    players: ["Alex", "Blake"], 
+    score: 0, 
+    roundScores: [] 
+  },
+  { 
+    name: "Team 2", 
+    players: ["Casey", "Dana"], 
+    score: 0, 
+    roundScores: [] 
+  }
+]
+*/
+
+// Word management
+let allWords; // Master array of ALL submitted words (never modified)
+let availableWords; // Words still in play for current round (modified during gameplay)
+
+// Current game state
+let currentRound; // 1 or 2 (which round we're in)
+let currentTeamIndex; // 0 or 1 (which team's turn)
+let currentPlayerIndex; // 0-3 (which player within that team)
+let currentWord; // The word currently being described
+let currentWordIndex; // Index of current word in availableWords array
+
+// Timer state
+let timerInterval; // Reference to setInterval for the countdown timer
+let timeRemaining; // Seconds left in current turn (starts at 60)
+let timerRunning; // Boolean - is timer currently active?
+
+// Word entry tracking (for setup phase)
+let currentWordEntryPlayerIndex; // Which player is currently entering words (0 to total players - 1)
+let allPlayersList; // Flat array of all players from both teams for word entry phase
+
+console.log('State variables initialized');
 
 /*------------------------ Cached Element References ------------------------*/
 
