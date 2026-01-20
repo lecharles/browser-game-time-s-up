@@ -66,6 +66,55 @@
     </div>
     
     <!-- ==================== GAMEPLAY SCREEN ==================== -->
+    <div id="gameplay-screen" class="screen hidden">
+        <!-- Round Info -->
+        <div class="round-info">
+            <h2 id="round-display">Round 1: Describe It 💬</h2>
+            <p id="round-instructions">Describe the word without saying it</p>
+        </div>
+    
+        <!-- Score Display -->
+        <div class="scoreboard">
+            <div class="team-score">
+                <h3 id="team1-name-display">Team 1</h3>
+                <p class="score" id="team1-score">0</p>
+            </div>
+            <div class="team-score">
+                <h3 id="team2-name-display">Team 2</h3>
+                <p class="score" id="team2-score">0</p>
+            </div>
+        </div>
+    
+        <!-- Turn Info (shown when waiting to start turn) -->
+        <div id="turn-info">
+            <p id="current-turn-display">Alex (Team 1)'s turn</p>
+            <button id="start-turn-btn" class="btn-primary">Start Turn</button>
+        </div>
+    
+        <!-- Word Display (shown during active turn) -->
+        <div id="word-display-container" class="hidden">
+            <div class="timer-display">
+                <p id="timer">1:00</p>
+            </div>
+    
+            <div class="word-card">
+                <p id="current-word">WORD</p>
+            </div>
+    
+            <div class="action-buttons">
+                <button id="got-it-btn" class="btn-success">Got It! ✓</button>
+                <button id="skip-btn" class="btn-skip">Skip ⏭</button>
+            </div>
+    
+            <p id="words-remaining">Words left: 0</p>
+        </div>
+    
+        <!-- Time's Up Message (shown when turn ends) -->
+        <div id="times-up-message" class="hidden">
+            <h2>⏰ TIME'S UP!</h2>
+            <button id="next-turn-btn" class="btn-primary">Next Turn</button>
+        </div>
+    </div>
      
     
     
