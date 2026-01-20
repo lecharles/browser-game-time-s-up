@@ -252,6 +252,87 @@ function validateSetup() {
     return true;
 }
 
+/*
+HANDLE SETUP SUBMIT FUNCTION
+Called when "Start Game" button is clicked
+Validates form, creates team objects, transitions to word entry
+*/
+
+function handleSetupSubmit() {
+    console.log('Setup submitted');
+
+    // Validate form first
+    if (!validateSetup()) {
+        console.log('Setup validation failed, stopping');
+        return; // Stop if validation fails
+    }
+
+    // If validation passed, collect the data
+    const team1Name = team1NameInput.value.trim();
+    const team2Name = team2NameInput.value.trim();
+
+    // Collect player names for each team
+    const team1Players = [];
+    const team2Players = [];
+
+    playerNameInputs.forEach(input => {
+        const playerName = input.value.trim();
+        const teamNum = input.getAttribute('data-team');
+
+        if (playerName) {
+            if (teamNum === '1') {
+                team1Players.push(playerName);
+            } else if (teamNum === '2') {
+                team2Players.push(playerName);
+            }
+        }
+    });
+
+    // Create team objects
+    teams = [
+        {
+            name: team1Name,
+            players: team1Players,
+            score: 0,
+            roundScores: []
+        },
+        {
+            name: team2Name,
+            players: team2Players,
+            score: 0,
+            roundScores: []
+        }
+    ];
+
+    console.log('Teams created:', teams);
+
+    // Create flat list of all players for word entry phase
+    // We'll alternate between teams when collecting words
+    allPlayersList = [];
+    const maxPlayers = Math.max(team1Players.length, team2Players.length);
+
+    for (let i = 0; i < maxPlayers; i++) {
+        if (i < teams[0].players.length) {
+            allPlayersList.push({ teamIndex: 0, playerName: teams[0].players[i] });
+        }
+        if (i < teams[1].players.length) {
+            allPlayersList.push({ teamIndex: 1, playerName: teams[1].players[i] });
+        }
+    }
+
+    console.log('All players list for word entry:', allPlayersList);
+
+    // Reset word entry tracking
+    currentWordEntryPlayerIndex = 0;
+
+    // Transition to word entry screen
+    currentScreen = SCREENS.WORD_ENTRY;
+    render();
+
+    // NOTE: We'll add word entry screen and its functions next
+    console.log('Transitioning to word entry screen');
+}
+
 // Call init when page loads
 init();
 
