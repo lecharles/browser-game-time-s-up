@@ -766,6 +766,43 @@ function handleNextTurn() {
 }
 
 /*
+END ROUND FUNCTION
+Called when all players have completed their turns
+Saves round scores and transitions to next round or final results
+*/
+
+function endRound() {
+    console.log('Ending round:', currentRound);
+
+    // Save scores for this round
+    teams[0].roundScores.push(teams[0].score);
+    teams[1].roundScores.push(teams[1].score);
+
+    console.log('Round scores saved:');
+    console.log(teams[0].name, 'scored', teams[0].score, 'in round', currentRound);
+    console.log(teams[1].name, 'scored', teams[1].score, 'in round', currentRound);
+
+    // Check if more rounds to play
+    if (currentRound < ROUNDS.length) {
+        console.log('More rounds to play. Moving to round', currentRound + 1);
+
+        // Reset scores for next round (but keep roundScores)
+        teams[0].score = 0;
+        teams[1].score = 0;
+
+        // Move to next round
+        currentRound++;
+
+        // Start next round
+        startRound();
+    } else {
+        console.log('All rounds complete! Game over.');
+        // NOTE: We'll add final results screen in next commit
+        alert('Game Over! Check console for scores.'); // Temporary
+    }
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
