@@ -337,3 +337,12 @@ function handleSetupSubmit() {
 init();
 
 /*----------------------------- Event Listeners -----------------------------*/
+/*
+SETUP SCREEN EVENT LISTENERS
+*/
+
+// Start Game button - validates and submits setup
+startGameBtn.addEventListener('click', handleSetupSubmit);
+
+console.log('Event listeners conected');
+
