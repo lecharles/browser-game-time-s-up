@@ -679,8 +679,8 @@ Shows cumulative totals
 function renderRoundResults() {
     console.log('Rendering round results');
 
-    // Show which round just completed
-    completedRoundNumber.textContent = currentRound - 1; // We've already incremented currentRound
+    // Show which round just completed (currentRound was already incremented)
+    completedRoundNumber.textContent = currentRound - 1;
 
     // Show team names
     roundTeam1Name.textContent = teams[0].name;
@@ -690,8 +690,8 @@ function renderRoundResults() {
 
     // Show round scores (last scores in roundScores array)
     const lastRoundIndex = teams[0].roundScores.length - 1;
-    roundTeam1Score.textContent = teams[0].roundScores[lastRoundIndex];
-    roundTeam2Score.textContent = teams[1].roundScores[lastRoundIndex];
+    roundTeam1Score.textContent = teams[0].roundScores[lastRoundIndex] || 0; // Fallback to 0 due to possible undefined
+    roundTeam2Score.textContent = teams[1].roundScores[lastRoundIndex] || 0; // Fallback to 0 for same reason
 
     // Calculate and show total scores
     const team1Total = teams[0].roundScores.reduce((sum, score) => sum + score, 0);
@@ -700,7 +700,9 @@ function renderRoundResults() {
     totalTeam1Score.textContent = team1Total;
     totalTeam2Score.textContent = team2Total;
 
-    console.log('Round results rendered');
+    console.log('Round results rendered. Round', currentRound - 1, 'scores:', teams[0].roundScores[lastRoundIndex], 'vs', teams[1].roundScores[lastRoundIndex]);
+    // additional logging for totals for clarity
+    console.log('Total scores so far:', teams[0].name, team1Total, 'vs', teams[1].name, team2Total);
 }
 
 /*
