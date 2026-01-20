@@ -469,6 +469,42 @@ function renderGameplay() {
 }
 
 /*
+START TURN FUNCTION
+Called when player clicks "Start Turn" button
+Starts the 60-second timer
+Shows the first word
+Enables action buttons
+*/
+
+function startTurn() {
+    console.log('Starting turn for:', teams[currentTeamIndex].players[currentPlayerIndex]);
+
+    // Check if there are words available
+    if (availableWords.length === 0) {
+        console.log('No words left! Ending round...');
+        // NOTE: We'll add endRound function later
+        return;
+    }
+
+    // Reset timer
+    timeRemaining = TIMER_DURATION;
+    timerRunning = true;
+
+    // Start countdown
+    startTimer();
+
+    // Show first word
+    showRandomWord();
+
+    // Hide turn info, show word display
+    turnInfo.classList.add('hidden');
+    wordDisplayContainer.classList.remove('hidden');
+    timesUpMessage.classList.add('hidden');
+
+    console.log('Turn started. Timer running.');
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
