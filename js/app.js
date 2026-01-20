@@ -837,17 +837,15 @@ function endRound() {
 
     // Check if more rounds to play
     if (currentRound < ROUNDS.length) {
-        console.log('More rounds to play. Moving to round', currentRound + 1);
+        console.log('More rounds to play. Will show results then move to round', currentRound + 1);
 
-        // Reset scores for next round (but keep roundScores)
-        teams[0].score = 0;
-        teams[1].score = 0;
-
-        // Move to next round
+        // Move to next round number NOW (before showing results)
         currentRound++;
 
-        // Start next round
-        startRound();
+        // Show round results screen
+        currentScreen = SCREENS.ROUND_RESULTS;
+        render();
+
     } else {
         console.log('All rounds complete! Game over.');
         // NOTE: We'll add final results screen in next commit
