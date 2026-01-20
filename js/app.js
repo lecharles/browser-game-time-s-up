@@ -505,6 +505,74 @@ function startTurn() {
 }
 
 /*
+START TIMER FUNCTION
+Starts the countdown timer using setInterval
+Updates display every second
+Calls endTurn when time reaches 0
+*/
+
+function startTimer() {
+    console.log('Timer started at', TIMER_DURATION, 'seconds');
+
+    // Update display immediately
+    updateTimerDisplay();
+
+    // Set up interval to count down every second
+    timerInterval = setInterval(() => {
+        // Decrease time remaining
+        timeRemaining--;
+
+        // Update display
+        updateTimerDisplay();
+
+        // Check if time is up
+        if (timeRemaining <= 0) {
+            console.log('Time is up!');
+            endTurn();
+        }
+    }, 1000); // Run every 1000ms = 1 second
+}
+
+/*
+UPDATE TIMER DISPLAY FUNCTION
+Formats time remaining as MM:SS and updates display
+*/
+
+function updateTimerDisplay() {
+    // Convert seconds to MM:SS format
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+
+    // Add leading zero to seconds if needed (e.g., 1:05 not 1:5)
+    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+    timerDisplay.textContent = formattedTime;
+
+    // Change color when time is running low
+    if (timeRemaining <= 10) {
+        timerDisplay.style.color = 'red';
+    } else {
+        timerDisplay.style.color = 'black';
+    }
+}
+
+/*
+STOP TIMER FUNCTION
+Stops the countdown timer
+*/
+
+function stopTimer() {
+    console.log('Timer stopped');
+
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+
+    timerRunning = false;
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
