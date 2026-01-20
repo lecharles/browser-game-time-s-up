@@ -608,6 +608,26 @@ function showRandomWord() {
 }
 
 /*
+END TURN FUNCTION
+Called when timer reaches 0
+Stops timer, shows "Time's Up" message
+Prepares for next turn
+*/
+
+function endTurn() {
+    console.log('Ending turn');
+
+    // Stop the timer
+    stopTimer();
+
+    // Hide word display, show time's up message
+    wordDisplayContainer.classList.add('hidden');
+    timesUpMessage.classList.remove('hidden');
+
+    console.log('Turn ended. Waiting for next turn button click.');
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
