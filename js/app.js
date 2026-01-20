@@ -721,6 +721,44 @@ function handleNextRound() {
 }
 
 /*
+CALCULATE WINNER FUNCTION
+Determines which team won based on total scores
+Returns object with winner info
+*/
+
+function calculateWinner() {
+    console.log('Calculating winner...');
+
+    // Calculate total scores for each team
+    const team1Total = teams[0].roundScores.reduce((sum, score) => sum + score, 0);
+    const team2Total = teams[1].roundScores.reduce((sum, score) => sum + score, 0);
+
+    console.log('Total scores:', teams[0].name, team1Total, 'vs', teams[1].name, team2Total);
+
+    // Determine winner
+    let winnerName;
+    let isTie = false;
+
+    if (team1Total > team2Total) {
+        winnerName = teams[0].name;
+    } else if (team2Total > team1Total) {
+        winnerName = teams[1].name;
+    } else {
+        isTie = true;
+        winnerName = 'Tie';
+    }
+
+    console.log('Winner:', winnerName);
+
+    return {
+        winnerName: winnerName,
+        isTie: isTie,
+        team1Total: team1Total,
+        team2Total: team2Total
+    };
+}
+
+/*
 HANDLE GOT IT FUNCTION
 Called when "Got It!" button is clicked
 Means the team guessed the word correctly
