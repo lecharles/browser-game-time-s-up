@@ -435,6 +435,39 @@ function startRound() {
 }
 
 /*
+RENDER GAMEPLAY FUNCTION
+Updates the gameplay screen with current game state
+Shows round info, scores, whose turn it is
+*/
+
+function renderGameplay() {
+    console.log('Rendering gameplay screen');
+
+    // Update round display
+    const currentRoundInfo = ROUNDS[currentRound - 1]; // Arrays are 0-indexed
+    roundDisplay.textContent = `Round ${currentRoundInfo.number}: ${currentRoundInfo.name} ${currentRoundInfo.icon}`;
+    roundInstructions.textContent = currentRoundInfo.instructions;
+
+    // Update team names and scores
+    team1NameDisplay.textContent = teams[0].name;
+    team2NameDisplay.textContent = teams[1].name;
+    team1ScoreDisplay.textContent = teams[0].score;
+    team2ScoreDisplay.textContent = teams[1].score;
+
+    // Update whose turn it is
+    const currentTeam = teams[currentTeamIndex];
+    const currentPlayer = currentTeam.players[currentPlayerIndex];
+    currentTurnDisplay.textContent = `${currentPlayer} (${currentTeam.name})'s turn`;
+
+    // Show turn info, hide word display and time's up message
+    turnInfo.classList.remove('hidden');
+    wordDisplayContainer.classList.add('hidden');
+    timesUpMessage.classList.add('hidden');
+
+    console.log('Gameplay rendered. Current player:', currentPlayer);
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
