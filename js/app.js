@@ -355,6 +355,27 @@ function handleWordSubmit() {
 }
 
 /*
+SHUFFLE ARRAY FUNCTION
+Used to randomize the word pool
+*/
+
+function shuffleArray(array) {
+    console.log('Shuffling array...');
+
+    // Start from the end and swap with random earlier position
+    for (let i = array.length - 1; i > 0; i--) {
+        // Pick random index from 0 to i
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+
+        // Swap elements at i and randomIndex
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+    }
+
+    console.log('Array shuffled');
+    return array;
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
