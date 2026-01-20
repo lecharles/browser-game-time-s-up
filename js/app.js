@@ -699,8 +699,8 @@ function renderRoundResults() {
 
     // Show round scores (last scores in roundScores array)
     const lastRoundIndex = teams[0].roundScores.length - 1;
-    roundTeam1Score.textContent = teams[0].roundScores[lastRoundIndex] //|| 0; // Fallback to 0 due to possible undefined
-    roundTeam2Score.textContent = teams[1].roundScores[lastRoundIndex] //|| 0; // Fallback to 0 for same reason
+    const team1RoundScore = teams[0].roundScores[lastRoundIndex];
+    const team2RoundScore = teams[1].roundScores[lastRoundIndex];
 
     console.log('Last round index:', lastRoundIndex);
     console.log('Team 1 round score:', team1RoundScore);
