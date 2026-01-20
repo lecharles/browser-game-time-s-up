@@ -377,9 +377,10 @@ function handleWordSubmit() {
 
         // Transition to gameplay
         currentScreen = SCREENS.GAMEPLAY;
-        render();
-
-        // NOTE: We'll add gameplay screen next
+        
+        // Start the first round
+        startRound();
+        
         console.log('Transitioning to gameplay');
     } else {
         // More players need to enter words
