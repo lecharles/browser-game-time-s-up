@@ -745,12 +745,19 @@ Moves to next player and checks if round is over
 function handleNextTurn() {
     console.log('Next turn button clicked');
 
+    // Increment turns completed
+    turnsCompletedInRound++;
+    console.log('Turns completed:', turnsCompletedInRound, 'of', totalTurnsInRound);
+
+    // Check if round is complete (all players have gone once)
+    if (turnsCompletedInRound >= totalTurnsInRound) {
+        console.log('Round complete! All players have gone.');
+        endRound();
+        return;
+    }
+
     // Move to next player
     moveToNextPlayer();
-
-    // Check if round is complete (all players have gone)
-    // For now, just continue to next turn
-    // NOTE: We'll add round completion check next
 
     // Re-render gameplay for next player's turn
     renderGameplay();
