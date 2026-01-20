@@ -674,6 +674,30 @@ function updateScores() {
 }
 
 /*
+HANDLE SKIP FUNCTION
+Called when "Skip" button is clicked
+Means the team couldn't guess the word
+- Word stays in availableWords pool (not removed)
+- Shows next word
+- No points awarded
+*/
+
+function handleSkip() {
+    console.log('Skip! Word skipped:', currentWord);
+    console.log('Word stays in pool for later');
+
+    // Check if any words left to show
+    if (availableWords.length === 0) {
+        console.log('No more words! Ending turn...');
+        endTurn();
+        return;
+    }
+
+    // Just show next word (don't remove current word from pool)
+    showRandomWord();
+}
+
+/*
 VALIDATE SETUP FUNCTION
 Checks if setup form is filled out correctly
 Returns true if valid, false if not
