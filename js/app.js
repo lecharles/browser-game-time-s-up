@@ -874,3 +874,6 @@ startTurnBtn.addEventListener('click', startTurn);
 
 // Got It button - correct guess, add point and remove word
 gotItBtn.addEventListener('click', handleGotIt);
+
+// Skip button - word not guessed, show next word but keep in pool
+skipBtn.addEventListener('click', handleSkip);
