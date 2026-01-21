@@ -225,9 +225,47 @@ This is a learning project, but feedback and suggestions are welcome! Feel free 
 
 ---
 
-## 📄 License
+## 📚 Resources
 
-This project is open source and available under the MIT License.
+This project was built using documentation and tutorials from **[MDN Web Docs](https://developer.mozilla.org/)**:
+
+### JavaScript Concepts
+- [Array Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) - `.forEach()`, `.splice()`, `.push()`, `.reduce()`, `.map()`
+- [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) - Timer countdown functionality
+- [clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval) - Stopping the timer
+- [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) - Random word selection
+- [Math.floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) - Rounding for random indices
+- [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) - String formatting
+- [Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) - Concise function syntax
+- [Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) - Array swapping in shuffle function
+
+### DOM Manipulation
+- [document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) - Accessing elements
+- [document.querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll) - Selecting multiple elements
+- [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) - `.add()`, `.remove()` for showing/hiding screens
+- [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) - Updating text dynamically
+- [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) - Creating dynamic HTML tables
+- [addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) - Click event handling
+- [getAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute) - Reading data attributes
+
+### HTML & Semantic Markup
+- [HTML Document Structure](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure) - Organizing content
+- [Forms and Input Elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) - User input collection
+- [Button Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) - Interactive controls
+- [Audio Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio) - Timer bell sound
+- [Data Attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) - `data-team`, `data-player`
+
+### CSS Styling
+- [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) - Responsive layouts
+- [CSS Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) - Smooth hover effects
+- [Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) - Responsive design
+- [Box Shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) - Card depth effects
+- [Border Radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) - Rounded corners
+- [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) - Color consistency
+
+### Web APIs
+- [HTMLAudioElement.play()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/play) - Playing timer bell sound
+- [Window.localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) - Considered for future save feature
 
 ---
 
@@ -235,12 +273,7 @@ This project is open source and available under the MIT License.
 
 - Inspired by the classic party game "Time's Up!" and similar word-guessing games
 - Created with ❤️ during holiday game nights with friends and family
-- Built as part of my software engineering bootcamp journey
 
 ---
 
 **Ready to play? [Start a game now!](https://lecharles.github.io/browser-game-time-s-up/)** 🎉
-
----
-
-*Made by [lecharles](https://github.com/lecharles) | January 2026*
