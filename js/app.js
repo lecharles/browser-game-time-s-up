@@ -1226,9 +1226,6 @@ nextRoundBtn.addEventListener('click', handleNextRound);
 // Play Again button - resets game to setup screen
 playAgainBtn.addEventListener('click', init);
 
-// Play Again button - resets game to setup screen
-playAgainBtn.addEventListener('click', init);
-
 // Mute button - toggles sound on/off
 muteBtn.addEventListener('click', handleMuteToggle);
 
