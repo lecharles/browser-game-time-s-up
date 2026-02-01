@@ -2,7 +2,7 @@ console.log('app.js connected');
 
 /*-------------------------------- Constants --------------------------------*/
 // Timer duration in seconds
-const TIMER_DURATION = 20; // temporaryly set to 12s for testing
+const TIMER_DURATION = 60; // temporaryly set to 12s for testing
 
 // Team constraints
 const MIN_TEAMS = 2;
